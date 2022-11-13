@@ -3,7 +3,7 @@ ELEC 341 - Systems and Control (September - December 2022)
 
 ## Assignments
 
-Assignment 1: 
+Assignment 1: Laplace transforms
 
 Assignment 2: 2nd order systems
 
@@ -13,7 +13,7 @@ Assignment 4: Block diagram manipulation
 
 Assignment 5: State space diagrams
 
-Assignment 6: 
+Assignment 6: Proportional control
 
 Assignment 7: 
 
