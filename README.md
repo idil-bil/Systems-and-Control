@@ -11,7 +11,7 @@ Assignment 3: Linear and angular mechanical systems and their electrical equival
 
 Assignment 4: Block diagram manipulation
 
-Assignment 5: 
+Assignment 5: State space diagrams
 
 Assignment 6: 
 
