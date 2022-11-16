@@ -15,7 +15,7 @@ Assignment 5: State space diagrams
 
 Assignment 6: Proportional control
 
-Assignment 7: 
+Assignment 7: Root locus and Lead control
 
 Assignment 8: 
 
