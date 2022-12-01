@@ -100,7 +100,7 @@ beta6 = 0;                                           %(pure) beta = 0 when criti
 %Q6.Wn = 4/(Q6.Z*Q1.Ts*10^(-3));                     %(rad/s) when critically damped Tr and Tp can't be used so omega = 4/(zeta*Ts)
 %Q6.G = Kdc*(Q6.Wn^2)/(s^2+2*Q6.Z*Q6.Wn*s+Q6.Wn^2);  %(V/V) xfer = Kdc*omega^2/(s^2+2*zeta*omega*s+omega^2)
 
-%More accurate way
+%more accurate way
 syms s t w                                                                        %turns laplace s to letter s (to defie a value or do ilaplace)
 step_response_s = Kdc/s*w^2/(s^2+2*w*s+w^2);
 step_response_t = ilaplace(step_response_s,t);
@@ -119,7 +119,7 @@ if 0
     hold off
 end
 
-%heck all of the approximations until now on the same figure
+%check all of the approximations until now on the same figure
 if 0 
     [y t] = step(Q6.G);
     t = t*10^3;
