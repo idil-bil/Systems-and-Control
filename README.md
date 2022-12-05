@@ -19,7 +19,7 @@ Assignment 7: Root locus and Lead control (PD Controller)
 
 Assignment 8: Lag & Lead-Lag Control (PID Controller)
 
-## Projects
+## Project
 
 - Part 1: Systems
 - Part 2: Control
