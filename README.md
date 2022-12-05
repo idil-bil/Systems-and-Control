@@ -13,17 +13,16 @@ Assignment 4: Block diagram manipulation
 
 Assignment 5: State space diagrams
 
-Assignment 6: Proportional control
+Assignment 6: Proportional control (P Controller)
 
-Assignment 7: Root locus and Lead control
+Assignment 7: Root locus and Lead control (PD Controller)
 
-Assignment 8: 
+Assignment 8: Lag & Lead-Lag Control (PID Controller)
 
 ## Projects
 
-Project 1: Systems
-
-Project 2: Control
+- Part 1: Systems
+- Part 2: Control
 
 ## Quiz
 Includes assignments 1-2-3-4
