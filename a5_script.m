@@ -18,7 +18,7 @@ G = 18;
 H = 19;
 
 %Defining Variables of the Mechanical Circuit from assignment 3
-%F = ma = Bv = Kx, T = Jw = Bw = K*theta 
+%F = m*a = B*v = K*x, T = J*sw = B*w = K*theta 
 M0 = A;   %(kg)
 M3 = A;   %(kg)
 M1 = B;   %(kg)
