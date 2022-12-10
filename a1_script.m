@@ -21,13 +21,13 @@ H = 19;
 %%%Q1: CCT Analysis
 
 %variables for the voltage amplifier circuit
-R1 = 10*A;      %Ohms
-L1 = B*10^(-3); %H
-C1 = C*10^(-6); %F
-R2 = 10*D;      %Ohms
-L2 = E*10^(-3); %H
-C2 = F*10^(-6); %F
-Vin = 18;       %V
+R1 = 10*A;      %(Ohms)
+L1 = B*10^(-3); %(H)
+C1 = C*10^(-6); %(F)
+R2 = 10*D;      %(Ohms)
+L2 = E*10^(-3); %(H)
+C2 = F*10^(-6); %(F)
+Vin = 18;       %(V)
 
 %impedances
 %R -> R, L -> sL, C = 1/(sC)
