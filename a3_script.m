@@ -85,7 +85,7 @@ V = inv(Y)*I;   %I = Y*V
 V3_tf = V(4);   %V = [V0; V1; V2; V3]
 
 %Transfer Function for d3
-d3_tf = V3_tf*1/s;      %scale by input value (1) and integrate velocity in s domain (1/s) to get distance from velocity
+d3_tf = V3_tf*1/s;      %use tf input (1) and integrate velocity in s domain (1/s) to get distance from velocity
 Q1.G = minreal(d3_tf);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,7 +104,7 @@ q3_Y = [yR0+yC0+yL20+yR20 0 -yL20-yR20 0;
     0 -yR31 -yL32 yL32+yR31+yC3];
 
 %Voltage Transfer Function Matrix but spring K1 replaced with damper B1
-q3_V = inv(q3_Y)*I;    %I = Y*V
+q3_V = inv(q3_Y)*I;    %I = inv(Y)*V
 
 %Transfer Function for V3 but spring K1 replaced with damper B1
 q3_V3 = q3_V(4);       %V = [V0; V1; V2; V3]
