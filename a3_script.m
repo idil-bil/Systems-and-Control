@@ -18,7 +18,7 @@ G = 18;
 H = 19;
 
 %Defining Variables of the Mechanical Circuits
-%F = ma = Bv = Kx, T = Jw = Bw = K*theta 
+%F = ma = Bv = Kd, T = Jw = Bw = K*theta 
 M0 = A;   %(kg)
 M3 = A;   %(kg)
 M1 = B;   %(kg)
