@@ -7,7 +7,7 @@ clear all;
 clc;
 
 % Student Number
-SN    = 21344189;
+SN    = ABCDEFGH;
 A = 12;
 B = 11;
 C = 13;
@@ -20,7 +20,7 @@ H = 19;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%Q1: RLC Circuit
 
-% plot xmtPlot(56121882) on the command line and find the second order approximation times 
+% plot xmtPlot(ABCDEFGH) on the command line and find the second order approximation times 
 Tr = 48.2253 * 10^(-3);         %(s) first time it gets to the final value before the peak
 Tp = 76.5932 * 10^(-3);         %(s) first time it gets to the highest value
 %no need for settle because you won't use it in your calculations
@@ -38,7 +38,7 @@ if 0
     figure(1);
     clf;
     grid on;
-    xmtPlot(21344189);              %check if the plots overlap if not try with another time like Tpeak
+    xmtPlot(ABCDEFGH);              %check if the plots overlap if not try with another time like Tpeak
     [test_y test_t] = step(tf);     %[y x] = step(xfer)
     test_t = test_t*10^3;           %change timescale to ms because thats what xmtPlot uses
     hold on;
