@@ -31,6 +31,7 @@ H2 = 1000/(s+G);
 %%%Q1: Block Diagram Manipulation
 %to check these on simulink draw the diagram with the library and check the scope graph
 %summation is under math, tf is under continuous, step (input) is under source (step time = 0), scope (output) is under commonly used
+%you can define the block directly in the script but use in simulink using the LTI blocks under control system toolbox
 
 Q1.G11 = minreal((G1*G2)/(1+G1*(G5*H2*(G3+G2*H1*G4))));
 
@@ -84,11 +85,11 @@ Rw = 1 + A/10;                %(ohms)
 Lw = (100 + 10*B) * 10^(-6);  %(henrys)
 Jr = C/10 * 10^(-6);          %(Nms^2)
 Km = (10+G) * 10^(-3);        %(Vs)
-Km_p = (10+G) * 10^(-3);       %(Nm/A) prime
+Km_p = (10+G) * 10^(-3);      %(Nm/A) prime
 
 s = tf('s');            %define s for laplace 
 Jtot = Jr*Jf/(Jr+Jf);   %series like capacitors
-Btot = Br*Bf/(Br+Bf);   %series like resistors
+Btot = Br*Bf/(Br+Bf);   %parallel like resistors
 
 Q3.Ye = minreal(1/(s*Lw + Rw));    %admittance of resistance and inductance
 Q3.Ym = minreal(1/Btot + s*Jtot);  %admittance of B(resistance) and J(capacitance)
