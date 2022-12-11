@@ -34,9 +34,9 @@ K21 = H;  %(N/m)
 F0 = 300; %(N)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Q1: State Matrixes
+%%%Q1: State Matrixes
 
-%[sd; v] = A * [d; v] + B * [F0; ](input)
+%[sd; sv] = A * [d; v] + B * [F0; ](inputs)
 Q1.A = [0 0 0 0 1 0 0 0; 
         0 0 0 0 0 1 0 0; 
         0 0 0 0 0 0 1 0; 
@@ -50,7 +50,7 @@ Q1.B = [0; 0; 0; 0; 300/M0; 0; 0; 0];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%Q2: Output Matrices
 
-%[d3; fK20](outputs) = C * [d; v] + D * [F0; ](input)    
+%[d3; fK20](outputs) = C * [d; v] + D * [F0; ](inputs)    
 Q2.C = [0 0 0 1 0 0 0 0; K20 0 -K20 0 0 0 0 0];
 Q2.D = [0; 0];
 
@@ -73,7 +73,7 @@ M0 = A+B;        %(kg)
 B0 = C+D;        %(Ns/m)
 N0 = 1:2;        %speed ratio
 
-%[sd; v; sIw] = A * [d; v; Iw] + B * [Vin; ](input)
+%[sd; sv; sIw] = A * [d; v; Iw] + B * [Vin; ](input)
 A = [0 0 0 0 1 0 0 0 0; 
      0 0 0 0 0 1 0 0 0; 
      0 0 0 0 0 0 1 0 0; 
@@ -96,11 +96,13 @@ Q3.G = C*STM*B+D;         %transfer function = C*STM*B+D
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%Q4: Gravity
+%gravity only affects inputs to B and D changes
 
-%[sd; v; sIw] = A * [d; v; Iw] + B * [Vin; Gravity](input)
+%[sd; sv; sIw] = A * [d; v; Iw] + B * [Vin; Gravity](input)
 B4 = [0 0; 0 0; 0 0; 0 0; 0 -9.81; 0 -9.81; 0 -9.81; 0 -9.81; 1/Lw 0];
 
 %[d3; ](outputs) = C * [d; v; Iw] + D * [Vin; Gravity](input)
+%for D -> output number = number of rows, input number = number of columns
 D4 = [0 0];
 
 STM4 = inv(s*identity-A);   %system transition matrix = (s*identity matrix - A)^(-1)
