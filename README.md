@@ -25,4 +25,4 @@ Assignment 8: Lag & Lead-Lag Control (PID Controller)
 - Part 2: Control
 
 ## Quiz
-Includes assignments 1-2-3-4
+Includes assignments 1-2-3-4-5
