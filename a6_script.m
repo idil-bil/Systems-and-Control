@@ -22,40 +22,40 @@ H = 19;
 
 %pole-zero declarations for EMS (G - controller) and SEN (H - feedback) (figure 2)
 ems_p1 = -A;            %X
-ems_p2 = -3*B;          %X
+ems_p2 = -3*B;          %X, most dominant pole for ems
 ems_p3 = -2*D+2*D*i;    %X
 ems_p4 = -2*D-2*D*i;    %X
 ems_z1 = -5*C;          %O
-ems_dcgain = 300/G;     %gain when s = 0
+ems_dcgain = 300/G;     %gain when s = 0 (X)
 sen_p1 = -25*E;         %X
-sen_dcgain = 1;         %gain when s = 0
+sen_dcgain = 1;         %gain when s = 0 (x)
 
 %xfer declarations
 %zpk([zeros],[poles],gain), (s-zeros)/(s-poles)
-ems_xfer = zpk([ems_z1],[ems_p1,ems_p2,ems_p3,ems_p4],1);   %1 is the coefficient not gain
-sen_xfer = zpk([],[sen_p1],1);                              %1 is the coefficient not gain
+ems_xfer = zpk([ems_z1],[ems_p1,ems_p2,ems_p3,ems_p4],1);   %1 is the coefficient not gain (K)
+sen_xfer = zpk([],[sen_p1],1);                              %1 is the coefficient not gain (K)
 
 %gain adjustments
 %overall dc gain/dynamic dc gain = coefficient in the xfer function 
-ems_gain = ems_dcgain/dcgain(ems_xfer);                          %gain = dc gain/coefficient
+ems_gain = ems_dcgain/dcgain(ems_xfer);                          %gain = dc gain/coefficient   actual K = X/Y
 ems_xfer = zpk([ems_z1],[ems_p1,ems_p2,ems_p3,ems_p4],ems_gain);
-sen_gain = sen_dcgain/dcgain(sen_xfer);                          %gain = dc gain/coefficient
+sen_gain = sen_dcgain/dcgain(sen_xfer);                          %gain = dc gain/coefficient   actual K = X/Y
 sen_xfer = zpk([],[sen_p1],sen_gain);
 
 %feedback parameters (figure 1)
-Kf = 1/sen_dcgain;  %Kf = 1/gain of the sensor before 
+Kf = 1/sen_dcgain;  %Kf = 1/gain of the sensor before (X)
 CF = 10*F;          %(Hz)
 s = tf("s");        %define s for laplace
-Df = CF/(s+CF);     %Dfeedback = CF/[Nhat*s +CF] Nhat = 1 if there are on weighted sum filters
+Df = CF/(s+CF);     %Dfeedback = CF/[Nhat*s +CF] Nhat = 1 if there are on weighted sum filters (also not used when CF is smaller than 10 times the most dominant pole (leftmost))
 
 %open loop xfer
-rate_ol_xfer = ems_xfer*sen_xfer*Df*Kf;     %K is not inluded since its not calculated yet  
-[rate_Gm rate_Pm] = margin(rate_ol_xfer);   %[GainMargin PhaseMargin] = margin(open loop xfer except controller)
+rate_ol_xfer = ems_xfer*sen_xfer*Df*Kf;     %K is not inluded since its not calculated yet  (GH)
+[rate_Gm rate_Pm] = margin(rate_ol_xfer);   %[GainMargin PhaseMargin] = margin(open loop xfer except controller (GH))
 rate_Kappa = rate_Gm;                       %ultimate (maximum) gain Ku (kappa) = Gain margin
 rate_K = rate_Kappa/2;                      %P controller K (give as half of Kappa in the question)
 
 %closed loop xfer
-rate_cl_xfer = feedback(ems_xfer*rate_K,sen_xfer*Df*Kf);    %feedback equation = G/(1+GH)
+rate_cl_xfer = feedback(rate_K*ems_xfer,sen_xfer*Df*Kf);    %feedback equation = G/(1+GH)
 
 %calculations for steady state error (used an easier way in the later assignments)
 rate_KGH = rate_K*rate_ol_xfer;                                         %actual open loop xfer since K is included
