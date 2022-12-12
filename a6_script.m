@@ -22,7 +22,7 @@ H = 19;
 
 %pole-zero declarations for EMS (G - controller) and SEN (H - feedback) (figure 2)
 ems_p1 = -A;            %X
-ems_p2 = -3*B;          %X, most dominant pole for ems
+ems_p2 = -3*B;          %X
 ems_p3 = -2*D+2*D*i;    %X
 ems_p4 = -2*D-2*D*i;    %X
 ems_z1 = -5*C;          %O
@@ -46,7 +46,7 @@ sen_xfer = zpk([],[sen_p1],sen_gain);
 Kf = 1/sen_dcgain;  %Kf = 1/gain of the sensor before (X)
 CF = 10*F;          %(Hz)
 s = tf("s");        %define s for laplace
-Df = CF/(s+CF);     %Dfeedback = CF/[Nhat*s +CF] Nhat = 1 if there are on weighted sum filters (also not used when CF is smaller than 10 times the most dominant pole (leftmost))
+Df = CF/(s+CF);     %Dfeedback = CF/[Nhat*s +CF] Nhat = 1 if there are on weighted sum filters (also not used when CF is smaller than 10 times the leftmost pole)
 
 %open loop xfer
 rate_ol_xfer = ems_xfer*sen_xfer*Df*Kf;     %K is not inluded since its not calculated yet  (GH)
