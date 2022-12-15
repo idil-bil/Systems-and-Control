@@ -21,8 +21,8 @@ Assignment 8: Lag & Lead-Lag Control (PID Controller)
 
 ## Project
 
-- Part 1: System
-- Part 2: Control
+- Part 1: System Identification
+- Part 2: Design
 
 ## Quiz
 Includes assignments 1-2-3-4-5
