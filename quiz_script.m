@@ -45,7 +45,7 @@ if 0
     plot(test_t, test_y, 'r--' ,'LineWidth', 3);
 end
 
-%write a voltage dividor function for C (thats how V is defined)
+%write a voltage divider function for C (thats how V is defined)
 %V = [1/sC]/[R+(1/sC)+sL] -> expand with s -> [1/C]/[s^2L+sR+1/C] -> expand with (1/L) to match tf -> [1/(LC)]/[s^2+R/Ls+1/(LC)]
 %look at tf from the command line
 %compute C and L
