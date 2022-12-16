@@ -7,7 +7,7 @@ clear all;
 clc;
 
 % Student Number
-SN    = 21344189;
+SN    = ABCDEFGH;
 A = 12;
 B = 11;
 C = 13;
