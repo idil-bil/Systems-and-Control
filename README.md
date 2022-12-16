@@ -24,5 +24,10 @@ Assignment 8: Lag & Lead-Lag Control (PID Controller)
 - Part 1: System Identification
 - Part 2: Design
 
+Functions written by:
+- Kerem Oktay
+- Jaydon Alexis
+- Will Kenna
+
 ## Quiz
 Includes assignments 1-2-3-4-5
